@@ -134,11 +134,11 @@ class LinkedInSelector(object):
         with contextlib.closing(StringIO()) as result:
             if type(selector) == dict:
                 for k, v in list(selector.items()):
-                    result.write('%s:(%s)' % (to_utf8(k), cls.parse(v)))
+                    result.write('%s:(%s)' % (k, cls.parse(v)))
             elif type(selector) in (list, tuple):
                 result.write(','.join(map(cls.parse, selector)))
             else:
-                result.write(to_utf8(selector))
+                result.write(selector)
             return result.getvalue()
 
 
